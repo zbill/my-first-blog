@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include, url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('blog.urls')),  # 从blog应用导出urls(对应blog/urls.py文件)到网站的urls.py文件，保持本文件的简洁
 ]
