@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+        <div class="post">
+            {% if post_detail.published_date %}  {# 判断是否已经发布，检查发布时间是否存在 #}
+                <h1>{{ post_detail.title }}</h1>
+                <div class="date">
+                    发布时间：{{ post_detail.published_date }}
+                </div>
+                <p>{{ post_detail.text|linebreaksbr }}</p>
+            {% else %}
+                <h1>该文章未发布！</h1>
+            {% endif %}
+        </div>
+{% endblock %}

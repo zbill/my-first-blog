@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ZBill's Blog</title>
-</head>
-<body>
-    <div>
-        <h1><a herf="/">ZBILL的博客</a></h1>
-    </div>
+{% extends 'blog/base.html' %}
+
+{% block content %}
     {% for post in posts %}
-        <div>
-            <h2><a href="">{{ post.title }}</a> </h2>
-            <h5><a>发布时间：{{ post.published_date }}</a></h5>
+        <div class="post">
+            <h1><a href="{% url 'post_detail' post_id=post.id %}">{{ post.title }}</a></h1>
+            <div class="date">
+                发布时间：{{ post.published_date }}
+            </div>
             <p>{{ post.text|linebreaksbr }}</p>
         </div>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
