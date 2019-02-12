@@ -2,20 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ZBill's blog</title>
+    <title>ZBill's Blog</title>
 </head>
 <body>
     <div>
-        <h1><a herf="">my blog</a></h1>
+        <h1><a herf="/">ZBILL的博客</a></h1>
     </div>
-    <div>
-        <h2><a herf="">first post</a></h2>
-        <p>啊啊啊啊</p>
-    </div>
-    <div>
-        <h2><a herf="">second post</a></h2>
-        <p>噢噢噢噢</p>
-    </div>
-    <p>post list:</p>
+    {% for post in posts %}
+        <div>
+            <h2><a href="">{{ post.title }}</a> </h2>
+            <h5><a>发布时间：{{ post.published_date }}</a></h5>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
 </body>
 </html>
